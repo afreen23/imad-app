@@ -13,7 +13,7 @@ http.onreadystatechange=function() {
 
 	}
   }
-http.open('GET','http://localhost:8080/counter',true);
+http.open('GET','http://studentinsha12.imad.hasura-app.io/counter',true);
 http.send(); 
 }
 
