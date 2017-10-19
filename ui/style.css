@@ -8,7 +8,7 @@
 
 body {
     }
-
+/*
 .center {
     text-align: center;
 }
@@ -20,12 +20,16 @@ body {
 .bold {
     font-weight: bold;
 }
-
+*/
 .img-medium {
     height: 200%;
 }
 
-li {
+ul {
+  list-style-position: inside;
+}
+
+nav li {
   color: #FFF;
   display: inline-block;
   font-family: 'Oxygen', sans-serif;
@@ -58,22 +62,20 @@ p {
 }
 
 #button {
-    background-color: dodgerblue;
+       background-color: dodgerblue;
     border: none;
     border-radius: 4px;
-    width: 180px;
-    height: 50px;
+    width: 100px;
+    height: 35px;
     color: whitesmoke;
     /* padding: 10px 24px; */
-    font-size: 20px;
-    margin-top:30px;
-    
+    font-size: 18px;
 }
 
 #button:hover {
   background-color: #2c7fd0;
 }
 
-footer {
+section {
     text-align: center;
 }

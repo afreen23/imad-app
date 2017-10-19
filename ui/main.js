@@ -34,3 +34,4 @@ img.onclick= function (){
 	interval=setInterval(moveRight,100);
 }
 //>>>>>>> master
+
