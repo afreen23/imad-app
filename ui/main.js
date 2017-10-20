@@ -1,4 +1,6 @@
 console.log('Loaded!');
+
+
 //<<<<<<< HEAD
 var button=document.getElementById('button');
 button.onclick=function() { 

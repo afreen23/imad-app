@@ -80,6 +80,14 @@ function createTemplate(data) {
 		        <section>
 		            ${content}
 		        </section>
+	            <section>
+		            <textarea placeholder="enter your comment" id="comment_box" rows="5" cols="35"></textarea>
+		            <button type="button" id="submit_comment" class="button">Post</button>
+		            <div id="comment_section">
+		            </div>
+        		</section>
+        		<script type="text/javascript" src="/ui/article.js">
+	    		</script>  
 		    </body>
 		</html>
 		`;
@@ -90,6 +98,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+
+var commentsList=[];
+app.get('/comments',function(req,res) {
+	var com=req.query.com;
+	commentsList.push(com);
+	res.send(JSON.stringify(commentsList));
+});
 
 var counter=0;
 app.get('/counter',function(req,res) {
@@ -124,6 +139,9 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+app.get('/ui/article.js',function(req,res) {
+    res.sendFile(path.join(__dirname,'ui','article.js'));
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
