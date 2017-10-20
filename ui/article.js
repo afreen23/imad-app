@@ -18,7 +18,7 @@ comment_submit_btn.onclick=function() {
 		}
 	}
     var comment=document.getElementById('comment_box').value;
-    http.open('GET','http://http://studentinsha12.imad.hasura-app.io/comments/?com= '+comment,true);
+    http.open('GET','http://studentinsha12.imad.hasura-app.io/comments/?com= '+comment,true);
 	http.send(); 
 
 }
