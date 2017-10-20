@@ -15,7 +15,7 @@ http.onreadystatechange=function() {
 
 	}
   }
-http.open('GET','http://localhost:8080/counter',true);
+http.open('GET','http://http://studentinsha12.imad.hasura-app.io/counter',true);
 http.send(); 
 }
 
@@ -55,7 +55,7 @@ submit.onclick=function() {
 		}
 	}
     var name=document.getElementById('input').value;
-    http.open('GET','http://localhost:8080/submit_name/?name= '+name,true);
+    http.open('GET','http://http://studentinsha12.imad.hasura-app.io/submit_name/?name= '+name,true);
 	http.send(); 
 }
 
