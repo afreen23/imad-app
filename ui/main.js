@@ -13,7 +13,7 @@ http.onreadystatechange=function() {
 
 	}
   }
-http.open('GET','http://studentinsha12.imad.hasura-app.io/counter',true);
+http.open('GET','http://localhost:8080/counter',true);
 http.send(); 
 }
 
@@ -34,21 +34,27 @@ img.onclick= function (){
 	interval=setInterval(moveRight,100);
 }
 //>>>>>>> master
-/*
 var submit=document.getElementById('submit');
 submit.onclick=function() {
 	var http=new XMLHttpRequest();
-	http.onreadystatechange()=function() {
-		if(http.readyState===XMLHttpRequest.DONE) {
-			if(http.status===200) {
-
-			}
+	http.onreadystatechange=function() {
+		if(http.readyState===XMLHttpRequest.DONE){
+			if(http.status===200){
+				var ul=document.getElementById('list');
+			    var namesList=http.responseText;
+			    namesList=JSON.parse(namesList);
+			    var list='';
+			    for(var i=0;i<namesList.length;i++){
+			       list  +='<li>'+namesList[i]+'</li>';
+			   }
+			   ul.innerHTML=list;
+        	}
+		
 		}
 	}
-	var name=document.getElementById('input').value;
-	var list=document.getElementById('list');
-	list.innerHTML=name;
-	http.open('GET','http"//localhost::8080/names',true);
-	http.send();
+    var name=document.getElementById('input').value;
+    http.open('GET','http://localhost:8080/submit_name/?name= '+name,true);
+	http.send(); 
 }
-*/
+
+	
