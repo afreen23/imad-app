@@ -5,31 +5,112 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles={
+	'article-one': {
+					title: 'Article-One|Afreen Rahman',
+					heading: 'Article One',
+					content:`<p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>
+				            <p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>
+				            <p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>`
+				},
+	'article-two': {
+
+					title: 'Article-Two|Afreen Rahman',
+					heading: 'Article Two',
+					content:`<p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>
+				            <p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>
+				            <p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>`
+				},
+	'article-three': {
+
+					title: 'Article-Three|Afreen Rahman',
+					heading: 'Article Three',
+					content:`<p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>
+				            <p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>
+				            <p>
+				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
+				            </p>`
+				}			
+};
+ 
+
+function createTemplate(data) {
+ var title=data.title;
+ var heading=data.heading;
+ var content=data.content;
+ var template=`<!DOCTYPE html>
+		<html>
+		    <head>
+		        <title>${title}</title>
+		        <meta name="viewport" content="width-device-width,initial-scale=1.0">
+		        <link href="/ui/style.css" rel="stylesheet"/>
+		        <link href="https://fonts.googleapis.com/css?family=Lato: 100,300,400,700|Luckiest+Guy|Oxygen:300,400" rel="stylesheet">
+		    </head>
+		    <body>
+		        <header>
+		             <nav> 
+		                <ul class="">
+		                    <li><a href="/">Home</a></li>
+		                    <li><a href="/article-one">Article One</a></li>
+		                    <li><a href="/article-two">Article Two</a></li>
+		                    <li><a href="/article-three">Article Three</a></li>
+		                </ul>           
+		            </nav>
+		            <div class="article_head">
+						<h1>${heading}</h1>
+					</div>
+		        </header>
+		        <section>
+		            ${content}
+		        </section>
+		    </body>
+		</html>
+		`;
+return template;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res) {
-     res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+app.get('/:articleName',function(req,res) {
+	var articleName=req.params.articleName;
+     res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two',function(req,res) {
- res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three',function(req,res) {
-    res.sendFile(path.join(__dirname,'ui','article-three.html'));
-});
-
-app.get('/ui/main.js',function(req,res) {
 //<<<<<<< HEAD
+app.get('/ui/main.js',function(req,res) {
     res.sendFile(path.join(__dirname,'ui','main.js'));
 });
+
+
 
 var counter=0;
 app.get('/counter',function(req,res) {
     counter+=1;
     res.send(counter.toString());
+});
+
+var names_list=[];
+app.get('/:name',function(req,res) {
+    var name=req.params.names;
+    names_list.push(name);
+    res.send(console.log(name));
 });
 
 //>>>>>>> master
@@ -45,7 +126,7 @@ app.get('/ui/madi.png', function (req, res) {
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
-var port =80;
+var port =8080;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });

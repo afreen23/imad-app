@@ -34,4 +34,21 @@ img.onclick= function (){
 	interval=setInterval(moveRight,100);
 }
 //>>>>>>> master
+/*
+var submit=document.getElementById('submit');
+submit.onclick=function() {
+	var http=new XMLHttpRequest();
+	http.onreadystatechange()=function() {
+		if(http.readyState===XMLHttpRequest.DONE) {
+			if(http.status===200) {
 
+			}
+		}
+	}
+	var name=document.getElementById('input').value;
+	var list=document.getElementById('list');
+	list.innerHTML=name;
+	http.open('GET','http"//localhost::8080/names',true);
+	http.send();
+}
+*/
