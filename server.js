@@ -129,11 +129,6 @@ app.get('/submit_name',function(req,res) {
 });
 
 
-app.get('/:articleName',function(req,res) {
-	var articleName=req.params.articleName;
-     res.send(createTemplate(articles[articleName]));
-});
-
 var pool= new Pool(config);
 app.get('/test-db',function(req,res) {
     pool.query('SELECT * FROM test',function(err,result) {
@@ -143,6 +138,13 @@ app.get('/test-db',function(req,res) {
             res.send(JSON.stringify(result));
     });
 });
+
+app.get('/:articleName',function(req,res) {
+	var articleName=req.params.articleName;
+     res.send(createTemplate(articles[articleName]));
+});
+
+
 
 //<<<<<<< HEAD
 app.get('/ui/main.js',function(req,res) {
