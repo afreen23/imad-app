@@ -15,50 +15,6 @@ var config= {
     password: process.env.DB_PASSWORD
 }
 
-var articles={
-	'article-one': {
-					title: 'Article-One|Afreen Rahman',
-					heading: 'Article One',
-					content:`<p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>
-				            <p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>
-				            <p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>`
-				},
-	'article-two': {
-
-					title: 'Article-Two|Afreen Rahman',
-					heading: 'Article Two',
-					content:`<p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>
-				            <p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>
-				            <p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>`
-				},
-	'article-three': {
-
-					title: 'Article-Three|Afreen Rahman',
-					heading: 'Article Three',
-					content:`<p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>
-				            <p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>
-				            <p>
-				                This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.This is my content.
-				            </p>`
-				}			
-};
- 
 
 function createTemplate(data) {
  var title=data.title;
@@ -110,10 +66,15 @@ app.get('/', function (req, res) {
 
 var commentsList=[];
 app.get('/comments',function(req,res) {
-	var com=req.query.com;
+  var com=req.query.com;
+	
 	commentsList.push(com);
 	res.send(JSON.stringify(commentsList));
+    
 });
+
+
+
 
 var counter=0;
 app.get('/counter',function(req,res) {
@@ -152,6 +113,14 @@ app.get('/articles/:articleName',function(req,res) {
         }
         
     });
+    
+   /* pool.query("SELECT * FROM comments WHERE article_name = $1",[req.params.articleName],function(err,result) {
+        if(err)
+          res.status(500).send(err.toString());
+        else {
+            
+        }
+    });*/
     
 });
 
