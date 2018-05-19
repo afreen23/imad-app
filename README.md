@@ -6,6 +6,7 @@ IMAD course application. This is built as part of the IMAD course to explain jav
 ## Features
 * A basic page containing links to several articles , an animation, and  a counter
 * Article page containing articles and comments
+* Postgres database connectivity
 
 ## Usage
 * Download or clone the repo
